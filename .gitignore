@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment Variables & Secrets
+.env
+*/.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Uploaded receipts in local development (keep empty directory)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs and system files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db

@@ -1,0 +1,15 @@
+{
+  "name": "proofpocket",
+  "version": "1.0.0",
+  "description": "ProofPocket - Personal Ownership Vault (MERN Stack)",
+  "scripts": {
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server/server.js",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

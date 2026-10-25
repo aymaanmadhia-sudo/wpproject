@@ -47,6 +47,16 @@ app.get('/api', (req, res) => {
   });
 });
 
+// Serve the production React application from the same Render web service.
+// Keeping the API and UI on one origin lets the client continue using /api
+// without a separate frontend deployment or CORS configuration.
+const clientDist = path.resolve(__dirname, '../client/dist');
+app.use(express.static(clientDist));
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) return next();
+  res.sendFile(path.join(clientDist, 'index.html'));
+});
+
 // Central error handler
 app.use(errorHandler);
 
